@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meds</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            background-color: black; /* Sets the background color to black */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Aligns items to the top */
+            overflow: hidden; /* Prevents overflow */
+            position: relative; /* Allows absolute positioning of enter screen */
+        }
+
+        .enter-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95); /* Darker overlay */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            z-index: 10; /* Keep it above the image */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        .swinging-image {
+            width: 60%; /* Adjust the size of the image */
+            transform-origin: top;
+            animation: swing 4s ease-in-out infinite; /* Swinging animation */
+            filter: grayscale(100%); /* Makes the image black and white */
+            margin-top: -2px; /* Adds some space from the top */
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+            100% { transform: rotate(-10deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="enter-screen" id="enterScreen">enter</div>
+    <img src="sayori.png" alt="Swinging Image" class="swinging-image" id="swingingImage">
+
+    <script>
+        document.getElementById('enterScreen').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('swingingImage').style.display = 'block';
+        });
+    </script>
+
+<audio id="background-audio" class="audio-player" src="audio.mp3" preload="auto"></audio> <!-- Add your audio file here -->
+
+<script>
+    document.getElementById('enterScreen').addEventListener('click', function() {
+        this.style.display = 'none'; // Hide the enter screen
+        document.getElementById('swingingImage').style.display = 'block'; // Show the image
+        document.getElementById('background-audio').play(); // Play audio when entering
+    });
+</script>
+
+</body>
+</html
