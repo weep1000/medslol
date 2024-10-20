@@ -67,14 +67,17 @@
     <audio id="background-audio" class="audio-player" src="audio.mp3" preload="auto"></audio>
 
     <script>
-        
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
         document.getElementById('enterScreen').addEventListener('click', function() {
             this.style.display = 'none';
             document.getElementById('swingingImage').style.display = 'block';
             document.getElementById('textContainer').style.display = 'block';
             document.getElementById('background-audio').play();
         });
-
     </script>
 
 </body>
